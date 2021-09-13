@@ -1,222 +1,373 @@
 import '../auth/auth_util.dart';
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../login/login_widget.dart';
+import '../onboard/onboard_widget.dart';
 import '../property/property_widget.dart';
+import '../verify_s_m_s/verify_s_m_s_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 
 class RegisterWidget extends StatefulWidget {
-  RegisterWidget({Key key}) : super(key: key);
+  RegisterWidget({
+    Key key,
+    this.cpassword,
+    this.password,
+    this.fullname,
+  }) : super(key: key);
+
+  final String cpassword;
+  final String password;
+  final String fullname;
 
   @override
   _RegisterWidgetState createState() => _RegisterWidgetState();
 }
 
 class _RegisterWidgetState extends State<RegisterWidget> {
-  TextEditingController emailAddressController1;
-  TextEditingController emailAddressController2;
-  TextEditingController passwordController1;
-  bool passwordVisibility1;
-  TextEditingController passwordController2;
-  bool passwordVisibility2;
+  TextEditingController confirmpasswordController;
+  bool confirmpasswordVisibility;
+  TextEditingController emailAddressController;
+  TextEditingController fullNameController;
+  TextEditingController phoneNumberController;
+  TextEditingController passwordController;
+  bool passwordVisibility;
+  final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    emailAddressController1 = TextEditingController();
-    emailAddressController2 = TextEditingController();
-    passwordController1 = TextEditingController();
-    passwordVisibility1 = false;
-    passwordController2 = TextEditingController();
-    passwordVisibility2 = false;
+    confirmpasswordController = TextEditingController();
+    confirmpasswordVisibility = false;
+    emailAddressController = TextEditingController();
+    fullNameController = TextEditingController();
+    phoneNumberController = TextEditingController();
+    passwordController = TextEditingController();
+    passwordVisibility = false;
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.white,
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * 1,
-        decoration: BoxDecoration(),
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-          child: SingleChildScrollView(
+    return Form(
+      key: formKey,
+      autovalidateMode: AutovalidateMode.always,
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.white,
+        body: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * 1,
+          decoration: BoxDecoration(),
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 70, 0, 30),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 180,
-                        height: 120,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.primaryBlack,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Image.asset(
-                          'assets/images/Nyumbalogo-removebg-preview.png',
-                          width: 100,
-                          height: 100,
-                          fit: BoxFit.cover,
-                        ),
-                      )
-                    ],
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                    ),
+                    child: Image.asset(
+                      'assets/images/Nyumba_logo.jpeg',
+                    ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
                         child: TextFormField(
-                          controller: emailAddressController1,
+                          controller: fullNameController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            labelText: 'Full Name',
+                            labelText: widget.fullname,
                             labelStyle: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Lexend Deca',
-                              color: Color(0xFF95A1AC),
+                              color: FlutterFlowTheme.primaryBlack,
                             ),
-                            hintText: 'Enter your name here...',
+                            hintText: 'Full Name',
                             hintStyle: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Lexend Deca',
-                              color: Color(0xFF95A1AC),
+                              color: FlutterFlowTheme.primaryBlack,
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.secondaryColor,
-                                width: 2,
+                                color: FlutterFlowTheme.primaryBlack,
+                                width: 1,
                               ),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.secondaryColor,
-                                width: 2,
+                                color: FlutterFlowTheme.primaryBlack,
+                                width: 1,
                               ),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             filled: true,
                             fillColor: Color(0xFFF4F4F4),
-                            contentPadding: EdgeInsets.fromLTRB(16, 24, 0, 24),
+                            contentPadding:
+                                EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
                           ),
                           style: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Lexend Deca',
                             color: FlutterFlowTheme.primaryBlack,
                           ),
+                          keyboardType: TextInputType.name,
+                          validator: (val) {
+                            if (val.isEmpty) {
+                              return 'Field is required';
+                            }
+
+                            return null;
+                          },
                         ),
                       )
                     ],
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
                         child: TextFormField(
-                          controller: emailAddressController2,
+                          controller: emailAddressController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            labelText: 'Email Address',
+                            labelText: emailAddressController.text,
                             labelStyle: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Lexend Deca',
-                              color: Color(0xFF95A1AC),
+                              color: FlutterFlowTheme.primaryBlack,
                             ),
-                            hintText: 'Enter your email here...',
+                            hintText: 'Email Address',
                             hintStyle: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Lexend Deca',
-                              color: Color(0xFF95A1AC),
+                              color: FlutterFlowTheme.primaryBlack,
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.secondaryColor,
-                                width: 2,
+                                color: FlutterFlowTheme.primaryBlack,
+                                width: 1,
                               ),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.secondaryColor,
-                                width: 2,
+                                color: FlutterFlowTheme.primaryBlack,
+                                width: 1,
                               ),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             filled: true,
                             fillColor: Color(0xFFF4F4F4),
-                            contentPadding: EdgeInsets.fromLTRB(16, 24, 0, 24),
+                            contentPadding:
+                                EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
                           ),
                           style: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Lexend Deca',
                             color: FlutterFlowTheme.primaryBlack,
                           ),
+                          validator: (val) {
+                            if (val.isEmpty) {
+                              return 'Field is required';
+                            }
+
+                            return null;
+                          },
                         ),
                       )
                     ],
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: phoneNumberController,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelText: phoneNumberController.text,
+                            labelStyle: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Lexend Deca',
+                              color: FlutterFlowTheme.primaryBlack,
+                            ),
+                            hintText: '+260',
+                            hintStyle: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Lexend Deca',
+                              color: FlutterFlowTheme.primaryBlack,
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.primaryBlack,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.primaryBlack,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            filled: true,
+                            fillColor: Color(0xFFF4F4F4),
+                            contentPadding:
+                                EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
+                          ),
+                          style: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.primaryBlack,
+                          ),
+                          keyboardType: TextInputType.phone,
+                          validator: (val) {
+                            if (val.isEmpty) {
+                              return 'Field is required';
+                            }
+
+                            return null;
+                          },
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
                         child: TextFormField(
-                          controller: passwordController1,
-                          obscureText: !passwordVisibility1,
+                          controller: passwordController,
+                          obscureText: !passwordVisibility,
                           decoration: InputDecoration(
-                            labelText: 'Password',
+                            labelText: widget.password,
                             labelStyle: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Lexend Deca',
                               color: Color(0xFF95A1AC),
                             ),
-                            hintText: 'Enter your email here...',
+                            hintText: 'Password',
                             hintStyle: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Lexend Deca',
                               color: Color(0xFF95A1AC),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.secondaryColor,
-                                width: 2,
+                                color: FlutterFlowTheme.primaryBlack,
+                                width: 1,
                               ),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.secondaryColor,
-                                width: 2,
+                                color: FlutterFlowTheme.primaryBlack,
+                                width: 1,
                               ),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             filled: true,
                             fillColor: Color(0xFFF4F4F4),
-                            contentPadding: EdgeInsets.fromLTRB(16, 24, 24, 24),
+                            contentPadding:
+                                EdgeInsetsDirectional.fromSTEB(16, 24, 24, 24),
                             suffixIcon: InkWell(
                               onTap: () => setState(
-                                () =>
-                                    passwordVisibility1 = !passwordVisibility1,
+                                () => passwordVisibility = !passwordVisibility,
                               ),
                               child: Icon(
-                                passwordVisibility1
+                                passwordVisibility
+                                    ? Icons.visibility_outlined
+                                    : Icons.visibility_off_outlined,
+                                color: Color(0xFF95A1AC),
+                                size: 22,
+                              ),
+                            ),
+                          ),
+                          style: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.primaryBlack,
+                          ),
+                          validator: (val) {
+                            if (val.isEmpty) {
+                              return 'Field is required';
+                            }
+
+                            return null;
+                          },
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: confirmpasswordController,
+                          obscureText: !confirmpasswordVisibility,
+                          decoration: InputDecoration(
+                            labelText: widget.cpassword,
+                            labelStyle: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Lexend Deca',
+                              color: FlutterFlowTheme.primaryBlack,
+                            ),
+                            hintText: 'Confirm Password',
+                            hintStyle: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Lexend Deca',
+                              color: FlutterFlowTheme.primaryBlack,
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.primaryBlack,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.primaryBlack,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            filled: true,
+                            fillColor: Color(0xFFF4F4F4),
+                            contentPadding:
+                                EdgeInsetsDirectional.fromSTEB(16, 24, 24, 24),
+                            suffixIcon: InkWell(
+                              onTap: () => setState(
+                                () => confirmpasswordVisibility =
+                                    !confirmpasswordVisibility,
+                              ),
+                              child: Icon(
+                                confirmpasswordVisibility
                                     ? Icons.visibility_outlined
                                     : Icons.visibility_off_outlined,
                                 color: Color(0xFF95A1AC),
@@ -234,83 +385,53 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: TextFormField(
-                          controller: passwordController2,
-                          obscureText: !passwordVisibility2,
-                          decoration: InputDecoration(
-                            labelText: 'Confirm Password',
-                            labelStyle: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lexend Deca',
-                              color: Color(0xFF95A1AC),
-                            ),
-                            hintText: 'Enter your email here...',
-                            hintStyle: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lexend Deca',
-                              color: Color(0xFF95A1AC),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.secondaryColor,
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.secondaryColor,
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            filled: true,
-                            fillColor: Color(0xFFF4F4F4),
-                            contentPadding: EdgeInsets.fromLTRB(16, 24, 24, 24),
-                            suffixIcon: InkWell(
-                              onTap: () => setState(
-                                () =>
-                                    passwordVisibility2 = !passwordVisibility2,
-                              ),
-                              child: Icon(
-                                passwordVisibility2
-                                    ? Icons.visibility_outlined
-                                    : Icons.visibility_off_outlined,
-                                color: Color(0xFF95A1AC),
-                                size: 22,
-                              ),
-                            ),
-                          ),
-                          style: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'Lexend Deca',
-                            color: FlutterFlowTheme.primaryBlack,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 24, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       FFButtonWidget(
                         onPressed: () async {
+                          if (!formKey.currentState.validate()) {
+                            return;
+                          }
                           await Navigator.push(
                             context,
                             PageTransition(
                               type: PageTransitionType.fade,
                               duration: Duration(milliseconds: 0),
                               reverseDuration: Duration(milliseconds: 0),
-                              child: PropertyWidget(),
+                              child: VerifySMSWidget(),
                             ),
                           );
+                          if (passwordController.text !=
+                              confirmpasswordController.text) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  "Passwords don't match!",
+                                ),
+                              ),
+                            );
+                            return;
+                          }
+
+                          final user = await createAccountWithEmail(
+                            context,
+                            emailAddressController.text,
+                            passwordController.text,
+                          );
+                          if (user == null) {
+                            return;
+                          }
+
+                          final accountCreateData = createAccountRecordData(
+                            fullName: widget.fullname,
+                            password: emailAddressController.text,
+                          );
+                          await AccountRecord.collection
+                              .doc(user.uid)
+                              .update(accountCreateData);
                         },
                         text: 'Create Account',
                         options: FFButtonOptions(
@@ -334,7 +455,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 24, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -352,13 +473,13 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsets.fromLTRB(0, 0, 8, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
                         child: Card(
                           clipBehavior: Clip.antiAliasWithSaveLayer,
                           color: FlutterFlowTheme.white,
@@ -380,7 +501,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(0, 0, 8, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
                         child: InkWell(
                           onTap: () async {
                             final user = await signInWithGoogle(context);
@@ -390,7 +511,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             await Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => RegisterWidget(),
+                                builder: (context) => PropertyWidget(),
                               ),
                               (r) => false,
                             );
@@ -403,8 +524,20 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                               borderRadius: BorderRadius.circular(50),
                             ),
                             child: IconButton(
-                              onPressed: () {
-                                print('IconButton pressed ...');
+                              onPressed: () async {
+                                await Navigator.push(
+                                  context,
+                                  PageTransition(
+                                    type: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 0),
+                                    reverseDuration: Duration(milliseconds: 0),
+                                    child: OnboardWidget(),
+                                  ),
+                                );
+                                final user = await signInWithGoogle(context);
+                                if (user == null) {
+                                  return;
+                                }
                               },
                               icon: FaIcon(
                                 FontAwesomeIcons.google,
@@ -425,7 +558,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                           await Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => RegisterWidget(),
+                              builder: (context) => PropertyWidget(),
                             ),
                             (r) => false,
                           );
@@ -438,8 +571,18 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             borderRadius: BorderRadius.circular(50),
                           ),
                           child: IconButton(
-                            onPressed: () {
-                              print('IconButton pressed ...');
+                            onPressed: () async {
+                              final user = await signInWithApple(context);
+                              if (user == null) {
+                                return;
+                              }
+                              await Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PropertyWidget(),
+                                ),
+                                (r) => false,
+                              );
                             },
                             icon: FaIcon(
                               FontAwesomeIcons.apple,
@@ -454,7 +597,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 24, 0, 24),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -467,8 +610,16 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         ),
                       ),
                       FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          await Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 2000),
+                              reverseDuration: Duration(milliseconds: 2000),
+                              child: LoginWidget(),
+                            ),
+                          );
                         },
                         text: 'Login',
                         options: FFButtonOptions(

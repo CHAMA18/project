@@ -1,12 +1,14 @@
 import '../auth/auth_util.dart';
-import '../categories/categories_widget.dart';
+import '../change_password/change_password_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../property/property_widget.dart';
+import '../province/province_widget.dart';
 import '../register/register_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 
 class LoginWidget extends StatefulWidget {
   LoginWidget({Key key}) : super(key: key);
@@ -16,8 +18,8 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
-  TextEditingController emailTextController;
-  TextEditingController passwordTextController;
+  TextEditingController emailAddressController;
+  TextEditingController passwordController;
   bool passwordVisibility;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -25,8 +27,8 @@ class _LoginWidgetState extends State<LoginWidget> {
   @override
   void initState() {
     super.initState();
-    emailTextController = TextEditingController();
-    passwordTextController = TextEditingController();
+    emailAddressController = TextEditingController();
+    passwordController = TextEditingController();
     passwordVisibility = false;
   }
 
@@ -37,6 +39,20 @@ class _LoginWidgetState extends State<LoginWidget> {
       autovalidateMode: AutovalidateMode.always,
       child: Scaffold(
         key: scaffoldKey,
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.primaryColor,
+          automaticallyImplyLeading: true,
+          title: Text(
+            'BACK',
+            style: FlutterFlowTheme.bodyText1.override(
+              fontFamily: 'Lexend Deca',
+              fontSize: 18,
+            ),
+          ),
+          actions: [],
+          centerTitle: true,
+          elevation: 0,
+        ),
         backgroundColor: FlutterFlowTheme.white,
         body: Column(
           mainAxisSize: MainAxisSize.max,
@@ -44,32 +60,55 @@ class _LoginWidgetState extends State<LoginWidget> {
             Row(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Image.asset(
-                  'assets/images/buildings-3591169_640.png',
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.4,
-                  fit: BoxFit.cover,
+                InkWell(
+                  onTap: () async {
+                    if (!formKey.currentState.validate()) {
+                      return;
+                    }
+                    final user = await signInWithEmail(
+                      context,
+                      emailAddressController.text,
+                      passwordController.text,
+                    );
+                    if (user == null) {
+                      return;
+                    }
+
+                    await Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PropertyWidget(),
+                      ),
+                      (r) => false,
+                    );
+                  },
+                  child: Image.asset(
+                    'assets/images/buildings-3591169_640.png',
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.4,
+                    fit: BoxFit.cover,
+                  ),
                 )
               ],
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.fromLTRB(0, 24, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsets.fromLTRB(24, 0, 24, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             TextFormField(
-                              controller: emailTextController,
+                              controller: emailAddressController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Email Address',
+                                labelText: emailAddressController.text,
                                 labelStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: FlutterFlowTheme.primaryBlack,
@@ -81,14 +120,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.secondaryColor,
+                                    color: FlutterFlowTheme.primaryBlack,
                                     width: 1,
                                   ),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.secondaryColor,
+                                    color: FlutterFlowTheme.primaryBlack,
                                     width: 1,
                                   ),
                                   borderRadius: BorderRadius.circular(8),
@@ -114,12 +153,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                               },
                             ),
                             Padding(
-                              padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                               child: TextFormField(
-                                controller: passwordTextController,
+                                controller: passwordController,
                                 obscureText: !passwordVisibility,
                                 decoration: InputDecoration(
-                                  labelText: 'Password',
+                                  labelText: passwordController.text,
                                   labelStyle:
                                       FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Lexend Deca',
@@ -133,14 +173,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.secondaryColor,
+                                      color: FlutterFlowTheme.primaryBlack,
                                       width: 1,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.secondaryColor,
+                                      color: FlutterFlowTheme.primaryBlack,
                                       width: 1,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
@@ -179,7 +219,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   if (!formKey.currentState.validate()) {
@@ -187,8 +228,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   }
                                   final user = await signInWithEmail(
                                     context,
-                                    emailTextController.text,
-                                    passwordTextController.text,
+                                    emailAddressController.text,
+                                    passwordController.text,
                                   );
                                   if (user == null) {
                                     return;
@@ -196,8 +237,12 @@ class _LoginWidgetState extends State<LoginWidget> {
 
                                   await Navigator.push(
                                     context,
-                                    MaterialPageRoute(
-                                      builder: (context) => CategoriesWidget(),
+                                    PageTransition(
+                                      type: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 2000),
+                                      reverseDuration:
+                                          Duration(milliseconds: 2000),
+                                      child: ProvinceWidget(),
                                     ),
                                   );
                                 },
@@ -221,16 +266,51 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 ),
                               ),
                             ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  InkWell(
+                                    onTap: () async {
+                                      await Navigator.push(
+                                        context,
+                                        PageTransition(
+                                          type: PageTransitionType.fade,
+                                          duration:
+                                              Duration(milliseconds: 2000),
+                                          reverseDuration:
+                                              Duration(milliseconds: 2000),
+                                          child: ChangePasswordWidget(),
+                                        ),
+                                      );
+                                    },
+                                    child: Text(
+                                      'Forgot Password? ',
+                                      style:
+                                          FlutterFlowTheme.bodyText1.override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: FlutterFlowTheme.primaryBlack,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsets.fromLTRB(0, 8, 0, 40),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 8, 0, 40),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsets.fromLTRB(0, 0, 0, 6),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 0, 6),
                                       child: Text(
                                         'Don’t have an account yet? ',
                                         style:

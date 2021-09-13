@@ -1,9 +1,14 @@
+import '../account_settings/account_settings_widget.dart';
+import '../flutter_flow/flutter_flow_ad_banner.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../property_rent/property_rent_widget.dart';
+import '../province/province_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PropertyWidget extends StatefulWidget {
@@ -54,7 +59,7 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                     child: Stack(
                       children: [
                         Align(
-                          alignment: Alignment(0.65, 0),
+                          alignment: AlignmentDirectional(0.65, 0),
                           child: Icon(
                             Icons.search,
                             color: Colors.black,
@@ -62,15 +67,28 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                           ),
                         ),
                         Align(
-                          alignment: Alignment(0.85, 0),
-                          child: FaIcon(
-                            FontAwesomeIcons.solidBell,
-                            color: Colors.black,
-                            size: 24,
+                          alignment: AlignmentDirectional(0.85, 0),
+                          child: InkWell(
+                            onTap: () async {
+                              await Navigator.push(
+                                context,
+                                PageTransition(
+                                  type: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 2000),
+                                  reverseDuration: Duration(milliseconds: 2000),
+                                  child: AccountSettingsWidget(),
+                                ),
+                              );
+                            },
+                            child: Icon(
+                              Icons.settings,
+                              color: Colors.black,
+                              size: 24,
+                            ),
                           ),
                         ),
                         Align(
-                          alignment: Alignment(0, 0),
+                          alignment: AlignmentDirectional(0, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -87,11 +105,21 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                           ),
                         ),
                         Align(
-                          alignment: Alignment(-0.94, 0.02),
-                          child: Icon(
-                            Icons.arrow_back_sharp,
-                            color: Colors.black,
-                            size: 32,
+                          alignment: AlignmentDirectional(-0.94, 0.02),
+                          child: InkWell(
+                            onTap: () async {
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ProvinceWidget(),
+                                ),
+                              );
+                            },
+                            child: Icon(
+                              Icons.arrow_back_sharp,
+                              color: Colors.black,
+                              size: 32,
+                            ),
                           ),
                         )
                       ],
@@ -101,7 +129,7 @@ class _PropertyWidgetState extends State<PropertyWidget> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -127,10 +155,18 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(50, 0, 0, 0),
                     child: FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        await Navigator.push(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.fade,
+                            duration: Duration(milliseconds: 2000),
+                            reverseDuration: Duration(milliseconds: 2000),
+                            child: PropertyRentWidget(),
+                          ),
+                        );
                       },
                       text: 'Rent',
                       options: FFButtonOptions(
@@ -153,7 +189,7 @@ class _PropertyWidgetState extends State<PropertyWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -163,20 +199,20 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                         child: Text(
-                          'Nearby Places',
+                          'Recommended Properties',
                           style: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Lexend Deca',
                             color: FlutterFlowTheme.primaryBlack,
-                            fontSize: 28,
+                            fontSize: 24,
                           ),
                         ),
                       )
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
@@ -188,11 +224,36 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                             height: 180,
                             decoration: BoxDecoration(
                               color: Color(0xFFEEEEEE),
+                              image: DecorationImage(
+                                fit: BoxFit.fill,
+                                image: Image.asset(
+                                  'assets/images/73349-message-icon.gif',
+                                ).image,
+                              ),
                               borderRadius: BorderRadius.circular(20),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                            child: Container(
+                              width: 200,
+                              height: 180,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFEEEEEE),
+                                image: DecorationImage(
+                                  fit: BoxFit.fill,
+                                  image: Image.asset(
+                                    'assets/images/buildings-3591169_640.png',
+                                  ).image,
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                             child: Container(
                               width: 200,
                               height: 180,
@@ -203,7 +264,8 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                             child: Container(
                               width: 200,
                               height: 180,
@@ -214,7 +276,8 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                             child: Container(
                               width: 200,
                               height: 180,
@@ -225,7 +288,8 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                             child: Container(
                               width: 200,
                               height: 180,
@@ -236,7 +300,8 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                             child: Container(
                               width: 200,
                               height: 180,
@@ -247,7 +312,8 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                             child: Container(
                               width: 200,
                               height: 180,
@@ -258,18 +324,8 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                            child: Container(
-                              width: 200,
-                              height: 180,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFEEEEEE),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                             child: Container(
                               width: 200,
                               height: 180,
@@ -287,18 +343,27 @@ class _PropertyWidgetState extends State<PropertyWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+              child: FlutterFlowAdBanner(
+                width: MediaQuery.of(context).size.width,
+                height: 50,
+                showsTestAd: true,
+                androidAdUnitID: 'ca-app-pub-4731326583797023/4799629130',
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 5),
                     child: Text(
                       'Featured Properties',
                       style: FlutterFlowTheme.bodyText1.override(
                         fontFamily: 'Lexend Deca',
                         color: FlutterFlowTheme.primaryBlack,
-                        fontSize: 24,
+                        fontSize: 28,
                       ),
                     ),
                   )
@@ -315,7 +380,7 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.9,
                           height: MediaQuery.of(context).size.height * 0.2,
@@ -340,7 +405,7 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                                 ],
                               ),
                               Align(
-                                alignment: Alignment(-0.85, 0.47),
+                                alignment: AlignmentDirectional(-0.85, 0.47),
                                 child: Text(
                                   'Hello World',
                                   style: FlutterFlowTheme.bodyText1.override(
@@ -355,12 +420,12 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.9,
                             height: MediaQuery.of(context).size.height * 0.2,
@@ -371,10 +436,10 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                             child: Stack(
                               children: [
                                 Align(
-                                  alignment: Alignment(0, 0),
+                                  alignment: AlignmentDirectional(0, 0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(20),
-                                    child: Image.asset(
+                                    child: SvgPicture.asset(
                                       'assets/images/realtor-6019792.svg',
                                       width: double.infinity,
                                       height: double.infinity,
@@ -383,7 +448,7 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: Alignment(-0.83, 0.62),
+                                  alignment: AlignmentDirectional(-0.83, 0.62),
                                   child: Text(
                                     'Hello World',
                                     style: FlutterFlowTheme.bodyText1.override(
@@ -399,12 +464,12 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.9,
                             height: MediaQuery.of(context).size.height * 0.2,
@@ -414,7 +479,7 @@ class _PropertyWidgetState extends State<PropertyWidget> {
                             ),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(20),
-                              child: Image.asset(
+                              child: SvgPicture.asset(
                                 'assets/images/realtor-6019792.svg',
                                 width: 100,
                                 height: 100,

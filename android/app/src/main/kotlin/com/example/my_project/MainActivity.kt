@@ -1,4 +1,4 @@
-package com.flutterflow.nyumba
+package com.flutterflow.nyumba24
 
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.FlutterFragmentActivity

@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CreateTaskWidget extends StatefulWidget {
@@ -50,7 +51,7 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsets.fromLTRB(16, 20, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16, 20, 16, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -64,7 +65,7 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(16, 4, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16, 4, 16, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -79,7 +80,7 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
               child: TextFormField(
                 controller: textController1,
                 obscureText: false,
@@ -117,7 +118,7 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
               child: TextFormField(
                 controller: textController2,
                 obscureText: false,
@@ -157,7 +158,7 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
               child: InkWell(
                 onTap: () async {
                   await DatePicker.showDatePicker(
@@ -181,7 +182,7 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
                     ),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(10, 14, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 14, 0, 0),
                     child: Text(
                       dateTimeFormat('MMMEd', datePicked),
                       style: FlutterFlowTheme.bodyText1.override(
@@ -194,7 +195,7 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

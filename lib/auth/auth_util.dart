@@ -118,3 +118,7 @@ Future verifySmsCode({
     );
   }
 }
+
+DocumentReference get currentUserReference => currentUser?.user != null
+    ? AccountRecord.collection.doc(currentUser.user.uid)
+    : null;

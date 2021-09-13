@@ -1,7 +1,10 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../property/property_widget.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -24,297 +27,297 @@ class _OnboardWidgetState extends State<OnboardWidget> {
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          Padding(
-            padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  'assets/images/Nyumbalogo.PNG',
-                  width: 200,
-                  height: 100,
-                  fit: BoxFit.fitHeight,
-                )
-              ],
-            ),
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Expanded(
-                child: Container(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.6,
-                  child: Stack(
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              height: 300,
+              child: Stack(
+                children: [
+                  PageView(
+                    controller: pageViewController,
+                    scrollDirection: Axis.horizontal,
                     children: [
-                      PageView(
-                        controller: pageViewController,
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          Container(
-                            width: 100,
-                            height: 100,
-                            decoration: BoxDecoration(),
-                            child: Column(
+                      Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                              child: Container(
+                                width: 120,
+                                height: 120,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.asset(
+                                  'assets/images/Nyumba_logo.jpeg',
+                                ),
+                              ),
+                            ),
+                            Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(20),
-                                        child: Image.asset(
-                                          'assets/images/68778-rocket-launch.gif',
-                                          width: 350,
-                                          height: 300,
-                                          fit: BoxFit.fitWidth,
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
                                 Padding(
-                                  padding: EdgeInsets.fromLTRB(20, 0, 20, 8),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          'Search for Books',
-                                          textAlign: TextAlign.center,
-                                          style:
-                                              FlutterFlowTheme.title1.override(
-                                            fontFamily: 'Lexend Deca',
-                                            color:
-                                                FlutterFlowTheme.primaryBlack,
-                                            fontSize: 32,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.fromLTRB(20, 0, 20, 8),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          'Find amazing classic books in our library.',
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.subtitle2
-                                              .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color:
-                                                FlutterFlowTheme.primaryBlack,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                        ),
-                                      )
-                                    ],
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 0, 0, 20),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Image.asset(
+                                      'assets/images/68778-rocket-launch.gif',
+                                      width: 300,
+                                      height: 300,
+                                      fit: BoxFit.fitWidth,
+                                    ),
                                   ),
                                 )
                               ],
                             ),
-                          ),
-                          Container(
-                            width: 100,
-                            height: 100,
-                            decoration: BoxDecoration(),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(20),
-                                        child: Image.asset(
-                                          'assets/images/68889-deliverame-app.gif',
-                                          width: 300,
-                                          height: 300,
-                                          fit: BoxFit.fitWidth,
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.fromLTRB(20, 0, 20, 8),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          'Purchase Books',
-                                          textAlign: TextAlign.center,
-                                          style:
-                                              FlutterFlowTheme.title1.override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Colors.white,
-                                            fontSize: 32,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.fromLTRB(20, 0, 20, 8),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          'Buy and view all your favorite books you find in this library.',
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.subtitle2
-                                              .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Color(0x99FFFFFF),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                        ),
-                                      )
-                                    ],
+                                AutoSizeText(
+                                  'YOUR RELIABLE REAL ESTATE PARNTER',
+                                  textAlign: TextAlign.justify,
+                                  style: FlutterFlowTheme.subtitle1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: FlutterFlowTheme.primaryBlack,
                                   ),
                                 )
                               ],
-                            ),
-                          ),
-                          Container(
-                            width: 100,
-                            height: 100,
-                            decoration: BoxDecoration(),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.fromLTRB(0, 30, 0, 30),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(20),
-                                        child: Image.asset(
-                                          'assets/images/69266-work.gif',
-                                          width: 300,
-                                          height: 250,
-                                          fit: BoxFit.fitWidth,
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.fromLTRB(20, 0, 20, 8),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          'Review Purchases',
-                                          textAlign: TextAlign.center,
-                                          style:
-                                              FlutterFlowTheme.title1.override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Colors.white,
-                                            fontSize: 32,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.fromLTRB(20, 0, 20, 8),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          'Keep track of all your purchases that you have made, want to trade books in? Go ahead and list them for exchange.',
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.subtitle2
-                                              .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Color(0xFF82878C),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                      Align(
-                        alignment: Alignment(0, 1),
-                        child: Padding(
-                          padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                          child: SmoothPageIndicator(
-                            controller: pageViewController,
-                            count: 3,
-                            axisDirection: Axis.horizontal,
-                            onDotClicked: (i) {
-                              pageViewController.animateToPage(
-                                i,
-                                duration: Duration(milliseconds: 500),
-                                curve: Curves.ease,
-                              );
-                            },
-                            effect: ExpandingDotsEffect(
-                              expansionFactor: 2,
-                              spacing: 8,
-                              radius: 16,
-                              dotWidth: 16,
-                              dotHeight: 4,
-                              dotColor: Color(0x8AC6CAD4),
-                              activeDotColor: Colors.white,
-                              paintStyle: PaintingStyle.fill,
-                            ),
-                          ),
+                            )
+                          ],
                         ),
                       ),
+                      Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                              child: Container(
+                                width: 120,
+                                height: 120,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.asset(
+                                  'assets/images/Nyumba_logo.jpeg',
+                                ),
+                              ),
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Search for properties near you',
+                                  style: FlutterFlowTheme.subtitle1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: FlutterFlowTheme.primaryBlack,
+                                  ),
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 0, 0, 20),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Image.asset(
+                                      'assets/images/68889-deliverame-app.gif',
+                                      width: 300,
+                                      height: 300,
+                                      fit: BoxFit.fitWidth,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(20, 0, 20, 8),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      'Purchase Books',
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.title1.override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: Colors.white,
+                                        fontSize: 32,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(20, 0, 20, 8),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      'Buy and view all your favorite books you find in this library.',
+                                      textAlign: TextAlign.center,
+                                      style:
+                                          FlutterFlowTheme.subtitle2.override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: FlutterFlowTheme.primaryBlack,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                                child: Container(
+                                  width: 120,
+                                  height: 120,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/Nyumba_logo.jpeg',
+                                  ),
+                                ),
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 30, 0, 30),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(20),
+                                      child: Image.asset(
+                                        'assets/images/69266-work.gif',
+                                        width: 300,
+                                        height: 250,
+                                        fit: BoxFit.fitWidth,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    20, 0, 20, 8),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        'Let\'s get you started',
+                                        textAlign: TextAlign.center,
+                                        style:
+                                            FlutterFlowTheme.subtitle1.override(
+                                          fontFamily: 'Lexend Deca',
+                                          color: FlutterFlowTheme.primaryBlack,
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
                     ],
                   ),
-                ),
-              )
-            ],
+                  Align(
+                    alignment: AlignmentDirectional(0, 1),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                      child: SmoothPageIndicator(
+                        controller: pageViewController,
+                        count: 3,
+                        axisDirection: Axis.horizontal,
+                        onDotClicked: (i) {
+                          pageViewController.animateToPage(
+                            i,
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.ease,
+                          );
+                        },
+                        effect: ExpandingDotsEffect(
+                          expansionFactor: 2,
+                          spacing: 8,
+                          radius: 16,
+                          dotWidth: 16,
+                          dotHeight: 4,
+                          dotColor: FlutterFlowTheme.primaryBlack,
+                          activeDotColor: Color(0xFF4282BE),
+                          paintStyle: PaintingStyle.fill,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 220),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                   child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      await Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.fade,
+                          duration: Duration(milliseconds: 2000),
+                          reverseDuration: Duration(milliseconds: 2000),
+                          child: PropertyWidget(),
+                        ),
+                      );
                     },
                     text: 'Continue',
                     options: FFButtonOptions(
