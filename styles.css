@@ -1,19 +1,18 @@
 /* Base variables */
 :root {
-  --bg: #ffffff;
-  --text: #0f172a;
-  --muted: #475569;
-  --card: #f8fafc;
-  --border: #e2e8f0;
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
-  --primary-contrast: #ffffff;
-  --accent: #7c3aed;
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
-  --shadow-md: 0 6px 24px rgba(15, 23, 42, 0.08);
-  --radius: 12px;
-  --header-height: 64px;
-  --container-padding: 1rem;
+  --bg: #0b0c10;
+  --surface: #0e1116;
+  --elevated: #131722;
+  --text: #e7eaf0;
+  --muted: #a3a9b6;
+  --border: #212734;
+  --accentA: #9b8cff;
+  --accentB: #22d3ee;
+  --accentC: #60a5fa;
+  --brand-gradient: linear-gradient(90deg, var(--accentA), var(--accentB) 50%, var(--accentC));
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 10px;
 }
 
 /* Dark mode disabled: force white background */

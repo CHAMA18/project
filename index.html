@@ -3,174 +3,250 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Your Name — Portfolio</title>
-    <meta name="description" content="Personal website and portfolio of Your Name, a software engineer specializing in building delightful web experiences.">
+    <title>The Zig — Modern Product Studio</title>
+    <meta name="description" content="We design and build modern software with exceptional speed and craft.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
-    <a class="skip-link" href="#content">Skip to content</a>
-
+  <body id="top">
     <header class="site-header">
-      <div class="container">
-        <nav class="nav" aria-label="Primary">
-          <a class="brand" href="#home">Your Name</a>
-          <ul class="nav-list">
+      <div class="container nav-row">
+        <a class="brand" href="#top" aria-label="Home">
+          <span class="logo-mark">Z</span>
+          <span class="brand-name gradient-text">ZIG</span>
+        </a>
+        <nav class="primary-nav" aria-label="Primary">
+          <ul class="nav-links">
+            <li><a href="#work">Work</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a class="btn btn--small" href="#contact">Contact</a></li>
+            <li><a href="#insights">Insights</a></li>
+            <li><a href="#contact" class="btn btn-primary sm">Get in touch</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main id="content">
-      <section id="home" class="section hero" aria-label="Hero">
+    <main>
+      <section class="section hero" aria-labelledby="hero-title">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="hero-eyebrow">Product studio</p>
+            <h1 id="hero-title">We build and ship <span class="gradient-text">world‑class software</span> fast.</h1>
+            <p class="hero-sub">Designers and engineers partnering with founders and product leaders to launch and scale standout products.</p>
+            <div class="hero-ctas">
+              <a href="#work" class="btn btn-primary">See our work</a>
+              <a href="#contact" class="btn">Contact us</a>
+            </div>
+            <div class="logo-cloud" aria-label="Trusted by">
+              <div class="logo">Acme</div>
+              <div class="logo">Globex</div>
+              <div class="logo">Umbrella</div>
+              <div class="logo">Initech</div>
+              <div class="logo">Soylent</div>
+              <div class="logo">Stark</div>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="blob"></div>
+            <div class="metrics">
+              <div class="metric-card">
+                <div class="metric-value">6–8 wks</div>
+                <div class="metric-label">Average time‑to‑MVP</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">+72</div>
+                <div class="metric-label">Client NPS</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">10x</div>
+                <div class="metric-label">Speed vs. baseline</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section" aria-labelledby="services-title">
         <div class="container">
-          <p class="eyebrow">Software Engineer</p>
-          <h1>Hi, I'm <span class="text-gradient">Your Name</span>.</h1>
-          <p class="lede">I design and build fast, accessible, human‑centered web experiences.</p>
-          <div class="cta">
-            <a class="btn btn--primary" href="#projects">View Projects</a>
-            <a class="btn btn--ghost" href="#contact">Get in touch</a>
+          <div class="section-head">
+            <h2 id="services-title" class="section-title">How we help</h2>
+            <p class="section-sub">End‑to‑end product teams that move from zero to one and beyond.</p>
+          </div>
+          <div class="grid-3">
+            <article class="card">
+              <div class="icon">⚡</div>
+              <h3>Velocity</h3>
+              <p>Small senior teams delivering outsized outcomes with rapid iterations and clear priorities.</p>
+            </article>
+            <article class="card">
+              <div class="icon">✨</div>
+              <h3>Craft</h3>
+              <p>Beautiful, accessible interfaces and robust systems that scale with your business.</p>
+            </article>
+            <article class="card">
+              <div class="icon">🤝</div>
+              <h3>Partnership</h3>
+              <p>We embed with your team as true partners—product, design, and engineering aligned.</p>
+            </article>
+          </div>
+
+          <div class="code-window" aria-label="Sample stack">
+            <div class="code-chrome">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="code-title">stack.ts</span>
+            </div>
+            <pre><code>export const stack = {
+  language: "TypeScript",
+  frameworks: ["Next.js", "React", "Vite"],
+  backend: ["Node", "Postgres", "Redis"],
+  cloud: ["Fly.io", "AWS", "Cloudflare"],
+  ai: ["OpenAI", "vLLM", "vector DBs"],
+};
+
+export function ship(product) {
+  return {
+    ...product,
+    quality: "world-class",
+    timeToMVP: "6-8 weeks",
+  };
+}
+</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="section" aria-labelledby="work-title">
+        <div class="container">
+          <div class="section-head">
+            <h2 id="work-title" class="section-title">Selected work</h2>
+            <p class="section-sub">A few recent collaborations and product launches.</p>
+          </div>
+          <div class="case-grid">
+            <a href="#" class="case-card">
+              <div class="case-badge">Fintech</div>
+              <h3>Banking app redesign</h3>
+              <p>Reimagined onboarding, faster transfers, delight at every step.</p>
+              <span class="tag">Design · iOS · Web</span>
+            </a>
+            <a href="#" class="case-card" data-variant="blue">
+              <div class="case-badge">SaaS</div>
+              <h3>Analytics platform</h3>
+              <p>Realtime dashboards with collaborative insights.</p>
+              <span class="tag">Product · Frontend · Backend</span>
+            </a>
+            <a href="#" class="case-card" data-variant="teal">
+              <div class="case-badge">AI</div>
+              <h3>Agentic workflows</h3>
+              <p>Automated knowledge work with safe guardrails.</p>
+              <span class="tag">LLMs · RAG · Orchestration</span>
+            </a>
           </div>
         </div>
       </section>
 
       <section id="about" class="section" aria-labelledby="about-title">
-        <div class="container grid two-col">
-          <div>
-            <h2 id="about-title">About</h2>
-            <p>I'm a software engineer with a focus on modern web development. I care about clean code, thoughtful design, and creating products that people love to use.</p>
-            <p>My recent work spans responsive frontends, design systems, and performance optimization. I enjoy collaborating with cross‑functional teams and shipping features that make a difference.</p>
-          </div>
-          <div class="key-highlights">
-            <ul>
-              <li><span class="k">5+</span> years building for the web</li>
-              <li><span class="k">Performance‑minded</span> with a11y focus</li>
-              <li><span class="k">Remote‑friendly</span> and async communicator</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills" class="section" aria-labelledby="skills-title">
         <div class="container">
-          <h2 id="skills-title">Skills</h2>
-          <ul class="tags">
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>Responsive Design</li>
-            <li>Accessibility (WCAG)</li>
-            <li>Design Systems</li>
-            <li>Tailwind CSS</li>
-            <li>Sass</li>
-            <li>JavaScript</li>
-            <li>TypeScript</li>
-            <li>React</li>
-            <li>Node.js</li>
-            <li>REST APIs</li>
-            <li>Git & GitHub</li>
-            <li>CI/CD</li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="projects" class="section" aria-labelledby="projects-title">
-        <div class="container">
-          <h2 id="projects-title">Projects</h2>
-          <div class="projects-grid">
+          <div class="section-head">
+            <h2 id="about-title" class="section-title">About</h2>
+            <p class="section-sub">Experienced builders from top product teams. We care deeply about outcomes and user joy.</p>
+          </div>
+          <div class="grid-3">
             <article class="card">
-              <div class="card-body">
-                <h3>Project One</h3>
-                <p>A brief description of a project you're proud of. Highlight the problem, your solution, and the impact.</p>
-                <ul class="tags tags--small">
-                  <li>HTML</li><li>CSS</li><li>Responsive</li>
-                </ul>
-                <div class="card-actions">
-                  <a href="#" class="btn btn--small btn--primary" target="_blank" rel="noopener">Live</a>
-                  <a href="#" class="btn btn--small btn--ghost" target="_blank" rel="noopener">Code</a>
-                </div>
-              </div>
+              <h3>Senior only</h3>
+              <p>Every seat is filled by a principal‑level designer or engineer. No hand‑offs, no bloat.</p>
             </article>
-
             <article class="card">
-              <div class="card-body">
-                <h3>Project Two</h3>
-                <p>Describe what you built, how you built it, and what makes it interesting or challenging.</p>
-                <ul class="tags tags--small">
-                  <li>Design System</li><li>Accessibility</li>
-                </ul>
-                <div class="card-actions">
-                  <a href="#" class="btn btn--small btn--primary" target="_blank" rel="noopener">Live</a>
-                  <a href="#" class="btn btn--small btn--ghost" target="_blank" rel="noopener">Code</a>
-                </div>
-              </div>
+              <h3>Outcome driven</h3>
+              <p>We don’t ship tickets—we ship results. Clear goals, measurable impact.</p>
             </article>
-
             <article class="card">
-              <div class="card-body">
-                <h3>Project Three</h3>
-                <p>Share results, metrics, or a short story about your role and contribution.</p>
-                <ul class="tags tags--small">
-                  <li>Performance</li><li>SEO</li>
-                </ul>
-                <div class="card-actions">
-                  <a href="#" class="btn btn--small btn--primary" target="_blank" rel="noopener">Live</a>
-                  <a href="#" class="btn btn--small btn--ghost" target="_blank" rel="noopener">Code</a>
-                </div>
-              </div>
+              <h3>Transparent</h3>
+              <p>Weekly demos, async updates, and open roadmaps keep everyone aligned.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="experience" class="section" aria-labelledby="experience-title">
+      <section id="insights" class="section" aria-labelledby="insights-title">
         <div class="container">
-          <h2 id="experience-title">Experience</h2>
-          <ul class="timeline">
-            <li class="timeline-item">
-              <div class="timeline-content">
-                <h3>Senior Frontend Engineer · Company Name</h3>
-                <p class="muted">2023 — Present</p>
-                <p>Leading the development of a component library and improving performance across critical user journeys.</p>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-content">
-                <h3>Frontend Engineer · Company Name</h3>
-                <p class="muted">2021 — 2023</p>
-                <p>Built responsive, accessible interfaces and collaborated with design and product to ship features.</p>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-content">
-                <h3>Web Developer · Company Name</h3>
-                <p class="muted">2019 — 2021</p>
-                <p>Maintained marketing site and implemented a blog platform with SEO‑friendly templates.</p>
-              </div>
-            </li>
-          </ul>
+          <div class="section-head">
+            <h2 id="insights-title" class="section-title">Insights</h2>
+            <p class="section-sub">Notes on process, engineering, and product thinking.</p>
+          </div>
+          <div class="grid-3">
+            <article class="card">
+              <h3>Designing for speed</h3>
+              <p>How to structure teams and systems to move fast without breaking craft.</p>
+            </article>
+            <article class="card">
+              <h3>Production‑ready AI</h3>
+              <p>Patterns for building reliable AI features into modern products.</p>
+            </article>
+            <article class="card">
+              <h3>From MVP to scale</h3>
+              <p>Shipping the 1.0 is just the start—ways to grow sustainably.</p>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section id="contact" class="section" aria-labelledby="contact-title">
+      <section id="contact" class="section">
         <div class="container">
-          <h2 id="contact-title">Contact</h2>
-          <p>Have a question or want to work together? Reach out:</p>
-          <ul class="contact-list">
-            <li><a href="mailto:hello@example.com" class="contact-link">hello@example.com</a></li>
-            <li><a href="https://github.com/yourhandle" class="contact-link" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/yourhandle" class="contact-link" target="_blank" rel="noopener">LinkedIn</a></li>
-          </ul>
+          <div class="cta">
+            <h2 class="section-title">Have a project in mind?</h2>
+            <p class="section-sub">We’d love to hear about it.</p>
+            <div class="hero-ctas">
+              <a href="mailto:hello@example.com" class="btn btn-primary">Email us</a>
+              <a href="#top" class="btn">Back to top</a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container">
-        <p>© <span id="year">2025</span> Your Name. All rights reserved.</p>
+      <div class="container footer-grid">
+        <div>
+          <a class="brand" href="#top">
+            <span class="logo-mark">Z</span>
+            <span class="brand-name gradient-text">ZIG</span>
+          </a>
+          <p class="footer-note">A modern product studio partnering with ambitious teams worldwide.</p>
+        </div>
+        <nav aria-label="Footer">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#insights">Insights</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Company">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h4>Get in touch</h4>
+          <ul>
+            <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">X (Twitter)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© 2025 Zig Studio. All rights reserved.</p>
       </div>
     </footer>
   </body>
